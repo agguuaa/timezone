@@ -15,37 +15,38 @@
       <option value="tokyo">Tokyo🇯🇵</option>
       <option value="sydney">Sydney🇦🇺</option>
     </select>
-  </body>
 
-  <script>
-    function showTime(event) {
-      let parisTime = moment()
-        .tz("Europe/Paris")
-        .format("dddd, MMMM D YYYY h:mm A");
+    <script>
+      function showTime(event) {
+        if (event.target.value.length > 0) {
+          let parisTime = moment()
+            .tz("Europe/Paris")
+            .format("dddd, MMMM D YYYY h:mm A");
 
-      let tokyoTime = moment()
-        .tz("Asia/Tokyo")
-        .format("dddd, MMMM D YYYY h:mm A");
+          let tokyoTime = moment()
+            .tz("Asia/Tokyo")
+            .format("dddd, MMMM D YYYY h:mm A");
 
-      let sydneyTime = moment()
-        .tz("Australia/Sydney")
-        .format("dddd, MMMM D YYYY h:mm A");
+          let sydneyTime = moment()
+            .tz("Australia/Sydney")
+            .format("dddd, MMMM D YYYY h:mm A");
 
-      if (event.target.value.lenght > 0)
-        if (event.target.value === "Paris") {
-          alert(`It's ${parisTime} in ${event.target.value}`);
+          if (event.target.value === "paris") {
+            alert(`It's ${parisTime} in ${event.target.value}`);
+          }
+
+          if (event.target.value === "tokyo") {
+            alert(`It's ${tokyoTime} in ${event.target.value}`);
+          }
+
+          if (event.target.value === "sydney") {
+            alert(`It's ${sydneyTime} in ${event.target.value}`);
+          }
         }
-
-      if (event.target.value === "Tokyo") {
-        alert(`It's ${tokyoTime} in ${event.target.value}`);
       }
 
-      if (event.target.value === "Sydney") {
-        alert(`It's ${sydneyTime} in ${event.target.value}`);
-      }
-    }
-
-    let cities = document.querySelector("#cities");
-    cities.addEventListener("change", showTime);
-  </script>
+      let cities = document.querySelector("#cities");
+      cities.addEventListener("change", showTime);
+    </script>
+  </body>
 </html>
